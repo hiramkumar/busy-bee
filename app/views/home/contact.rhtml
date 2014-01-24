@@ -1,0 +1,61 @@
+<html>
+	<div  style="width: 50%; float:left;">
+		<table>
+			<tr>
+				<td align="center">
+					<%= image_tag ("/images/contact.png")%> 
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div  style="width: 50%; float:left;">
+		<table>
+			<%= form_tag(url_for(:controller => "home", :action => "mail"), :method => :post) do %>
+			<tr>
+				<td class="head">
+					Contact Us
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%=text_field_tag 'name', nil, :placeholder => 'Name',:class => 'text' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%=text_field_tag 'company', nil, :placeholder => 'Company Name',:class => 'text' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%=text_field_tag 'mail', nil, :placeholder => 'E-mail Address',:class => 'text' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%=text_field_tag 'phone', nil, :placeholder => 'Phone Number',:class => 'text' %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea name="story" placeholder="Enquiry"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= submit_tag "Submit" %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</html>
+<% worker = 7204712489%>
+<a href="http://ubaid.tk/sms/sms.aspx?uid=7204712489&pwd=ram2india&msg=<%= "message" %>&phone=<%= worker%>&provider=way2sms" target='_blank'>Send SMS</a> 
+<script>
+$(document).ready(function(){
+	if ( '<%= flash[:notice] %>' != "") {
+		alert('<%= flash[:notice] %>')
+	}
+});
+</script>
